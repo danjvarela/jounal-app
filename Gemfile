@@ -63,3 +63,5 @@ group :test do
 end
 
 gem "shakapacker", "= 6.5"
+
+gem "tailwindcss-rails", "~> 2.0"
