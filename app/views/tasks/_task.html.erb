@@ -1,12 +1,5 @@
-<div id="<%= dom_id task %>">
-  <p>
-    <strong>Name:</strong>
+<%= link_to category_task_path(@category, task), class: "card card-bordered border-2 link link-hover" do %>
+  <div class="card-body p-5">
     <%= task.name %>
-  </p>
-
-  <p>
-    <strong>Description:</strong>
-    <%= task.description %>
-  </p>
-
-</div>
+  </div>
+<% end %>

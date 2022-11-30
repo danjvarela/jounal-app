@@ -1,15 +1,11 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Tasks</h1>
-
-<div id="tasks">
-  <% @tasks.each do |task| %>
-    <%= render task %>
-    <p>
-      <%= link_to "Show this task", category_task_path(@category, task) %>
-    </p>
-  <% end %>
+<div class="flex flex-col">
+  <%= link_to "View this task's category", category_path(@category), class: "btn btn-sm btn-ghost mb-5 max-w-sm gap-2 justify-start" %>
+  <h1>Tasks</h1>
+  <%= link_to "New Task", new_category_task_path(@category), class: "btn btn-primary mb-5" %>
+  
+  <div class="flex flex-col gap-2">
+    <% @tasks.each do |task| %>
+      <%= render task %>
+    <% end %>
+  </div>
 </div>
-
-<%= link_to "New task", new_category_task_path(@category) %> |
-<%= link_to "Show this task's category", category_path(@category) %>

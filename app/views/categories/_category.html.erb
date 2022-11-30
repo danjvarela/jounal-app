@@ -1,7 +1,6 @@
-<div id="<%= dom_id category %>">
-  <p>
-    <strong>Name:</strong>
+<%= link_to category_path(category), class: "card card-bordered border-2 link link-hover" do %>
+  <div class="card-body p-5">
     <%= category.name %>
-  </p>
+  </div>
+<% end %>
 
-</div>

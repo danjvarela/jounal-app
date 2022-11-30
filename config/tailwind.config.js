@@ -1,7 +1,6 @@
 const defaultTheme = require("tailwindcss/defaultTheme");
-const withMT = require("@material-tailwind/html/utils/withMT");
 
-module.exports = withMT({
+module.exports = {
   content: [
     "./public/*.html",
     "./app/helpers/**/*.rb",
@@ -19,5 +18,9 @@ module.exports = withMT({
     require("@tailwindcss/forms"),
     require("@tailwindcss/aspect-ratio"),
     require("@tailwindcss/typography"),
+    require("daisyui"),
   ],
-});
+  daisyui: {
+    darkTheme: "light",
+  },
+};
