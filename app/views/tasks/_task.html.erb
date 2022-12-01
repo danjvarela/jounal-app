@@ -1,11 +1,13 @@
+<% category ||= @category %>
 <div class="card card-bordered border-2">
   <div class="card-body p-5">
-    <%= link_to category_task_path(defined?(category) ? category : @category, task), class: "link link-hover" do %>
-      <%= task.name %>
+    <%= link_to category_task_path(category, task), class: "link link-hover" do %>
+      <h3 class="card-title mt-0"><%= task.name %></h3>
+      <p><%= task.description %></p>
     <% end %>
     <div class="card-actions">
-      <%= link_to category_path(defined?(category) ? category : @category), class: "link link-hover" do %>
-        <div class="badge badge-outline z-40"><%= defined?(category) ? category.name : @category.name %></div> 
+      <%= link_to category_path(category), class: "link link-hover" do %>
+        <div class="badge badge-outline z-40"><%= category.name %></div> 
       <% end %>
     </div>
   </div>
