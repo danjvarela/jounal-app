@@ -13,6 +13,7 @@
 
   <body>
     <main class="container mx-auto h-screen pt-28 prose">
+      <%= link_to "Home", root_path, class: "btn btn-sm btn-ghost mb-5 max-w-sm gap-2 justify-start" if params[:action] != "home"  %>
       <%= yield %>
     </main>
   </body>

@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+["General", "Studies", "Work_Stuff", "Important"].each do |category_name|
+  category = Category.create name: category_name
+  10.times { |n| category.tasks.create name: "Task #{n + 1}", description: "Task #{n + 1} description", created_at: Time.now + [-1, -2, 0, 1, 2].sample.days }
+end
