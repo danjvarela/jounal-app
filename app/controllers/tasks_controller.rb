@@ -3,7 +3,7 @@ class TasksController < ApplicationController
   before_action :get_task, only: [:show, :edit, :update, :destroy]
 
   def index
-    @tasks = @category.tasks.order(created_at: :desc)
+    @tasks = @category.tasks.order(deadline: :asc)
   end
 
   def new
@@ -41,7 +41,7 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:name, :description, :category_id)
+    params.require(:task).permit(:name, :description, :category_id, :deadline)
   end
 
   def get_task

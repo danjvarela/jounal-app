@@ -6,8 +6,8 @@ class Task < ApplicationRecord
 
   # returns an array of all the tasks grouped into days
   def self.group_per_deadline
-    all.order(deadline: :desc).each_with_object({}) do |task, days|
-      day = task.deadline.strftime DATE_FORMAT
+    all.order(deadline: :asc).each_with_object({}) do |task, days|
+      day = task.formatted_deadline
 
       if days[day]
         days[day].push task
@@ -17,9 +17,14 @@ class Task < ApplicationRecord
     end
   end
 
-  # returns the tasks for today
-  def self.today
-    where deadline: (Time.now.beginning_of_day..Time.now.end_of_day)
+  def deadline_today?
+    (Time.now.beginning_of_day..Time.now.end_of_day).include? deadline
+  end
+
+  def formatted_deadline
+    return "No deadline" if deadline.blank?
+    return "Today" if deadline_today?
+    deadline.strftime DATE_FORMAT
   end
 
   private

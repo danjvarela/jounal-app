@@ -19,6 +19,10 @@
         <%= form.label :description %>
         <%= form.text_field :description, class: "input input-sm input-bordered w-full" %>
       </div>
+      <div>
+        <%= form.label :deadline %>
+        <%= form.date_field :deadline, class: "input input-sm input-bordered w-full" %>
+      </div>
       
       <div class="card-actions mt-5">
         <%= form.submit class: "btn btn-primary btn-sm" %>
