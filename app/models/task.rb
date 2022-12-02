@@ -18,7 +18,7 @@ class Task < ApplicationRecord
   end
 
   def deadline_today?
-    (Time.now.beginning_of_day..Time.now.end_of_day).include? deadline
+    (Time.now.beginning_of_day..Time.now.end_of_day).cover? deadline
   end
 
   def formatted_deadline
