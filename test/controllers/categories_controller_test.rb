@@ -1,6 +1,12 @@
 require "test_helper"
 
 class CategoriesControllerTest < ActionDispatch::IntegrationTest
+  setup do
+    get "/users/sign_in"
+    sign_in users :one
+    post user_session_url
+  end
+
   test "should get index" do
     get categories_path
     assert_response :success
@@ -18,29 +24,25 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get edit" do
-    category = Category.create name: "sample category"
-    get edit_category_path category
+    get edit_category_path categories :one
     assert_response :success
   end
 
   test "should put/patch update" do
-    category = Category.create name: "sample category"
     new_category = Category.new name: "new sample name"
-    put category_path category, params: {category: new_category.attributes}
+    put category_path categories(:one), params: {category: new_category.attributes}
     assert_response :redirect
-    patch category_path category, params: {category: new_category.attributes}
+    patch category_path categories(:one), params: {category: new_category.attributes}
     assert_response :redirect
   end
 
   test "should get show" do
-    category = Category.create name: "sample category"
-    get category_path category
+    get category_path categories :one
     assert_response :success
   end
 
   test "should delete destroy" do
-    category = Category.create name: "sample category"
-    delete category_path category
+    delete category_path categories :one
     assert_response :redirect
   end
 end
