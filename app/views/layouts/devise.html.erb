@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html data-theme="lemonade">
+  <head>
+    <title>JournalApp</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+
+    <%= stylesheet_link_tag "application" %>
+    <%= javascript_pack_tag "application" %>
+  </head>
+
+  <body>
+    <main class="container mx-auto h-screen prose flex flex-col justify-center items-center">
+      <% if alert %>
+        <div class="alert alert-error">
+          <span><%= alert %></span>
+        </div>
+      <% end %>
+      <% if notice %>
+        <div class="alert alert-info">
+          <span><%= notice %></span>
+        </div>
+      <% end %>
+      <%= yield %>
+    </main>
+  </body>
+</html>
