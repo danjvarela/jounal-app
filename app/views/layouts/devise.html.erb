@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html data-theme="lemonade">
+<html data-theme="cupcake">
   <head>
     <title>JournalApp</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -13,16 +13,6 @@
 
   <body>
     <main class="container mx-auto h-screen prose flex flex-col justify-center items-center">
-      <% if alert %>
-        <div class="alert alert-error">
-          <span><%= alert %></span>
-        </div>
-      <% end %>
-      <% if notice %>
-        <div class="alert alert-info">
-          <span><%= notice %></span>
-        </div>
-      <% end %>
       <%= yield %>
     </main>
   </body>
