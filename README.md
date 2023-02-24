@@ -1,24 +1,9 @@
-# README
+# Journal App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A simple Journal (To-do) app I made for studying devise. View the app [here](#). You can log in using the email `user@example.com` and password `password`.
 
-Things you may want to cover:
+## Features
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Authentication
+- Task categorization
+- Real time updates using turbo-frames
