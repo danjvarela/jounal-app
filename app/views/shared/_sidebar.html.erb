@@ -1,0 +1,14 @@
+<aside id="logo-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen pt-16 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700" aria-label="Sidebar">
+  <div class="h-full px-3 pb-4 pt-6 overflow-y-auto bg-white dark:bg-gray-800">
+    <%= button_to "New category", new_category_path, class: "mb-5 text-white w-full bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800", method: :get %>
+    <ul class="space-y-2">
+        <li>
+          <%= link_to(tasks_path, class: "flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700") do %>
+            <span class="ml-3">All Tasks</span>
+          <% end %>
+        </li>
+        <%= turbo_stream_from "categories" %>
+        <%= turbo_frame_tag "categories", src: categories_path %>
+    </ul>
+   </div>
+</aside>

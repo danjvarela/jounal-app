@@ -1,0 +1,15 @@
+<div class="flex">
+    <div class="flex items-start h-5 pt-2">
+      <%= check_box_tag('completed', "1", false, id: dom_id(task), class: "w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600") %> 
+    </div>
+    <div class="ml-2 text-lg">
+      <%= label_tag dom_id(task), task.name, class: "font-medium text-gray-900 dark:text-gray-300" %>
+      <% unless task.description.blank? %>
+        <%= simple_format task.description, class: "mb-2 whitespace-pre-line font-light text-sm text-gray-500 dark:text-gray-400" %>
+      <% end %>
+      <p class="flex gap-3 text-sm font-normal text-gray-500 dark:text-gray-300">
+        <%= link_to "Edit", edit_task_path(task), class: "hover:underline" %>
+        <%= link_to "Delete", task_path(task), class: "hover:underline", "data-turbo-method" => :delete %>
+      </p>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="flex justify-between items-center mb-6">
+  <h3 class="text-3xl font-bold dark:text-white"><%= @category&.name || "All tasks" %></h3>
+  <div class="flex gap-2 items-center">
+    <% unless @category.blank? %>
+      <%= button_to "Rename this category", edit_category_path(@category), class: "focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900", method: :get %>
+      <%= button_to "Delete this category", category_path(@category), class: "focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900", method: :delete %>
+      <%= button_to "New task", new_category_task_path(@category), class: "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800", method: :get %>
+    <% else %>
+      <%= button_to "New task", new_task_path, class: "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800", method: :get %>
+    <% end %>
+  </div>
+</div>
+<div class="flex flex-col gap-3">
+  <%= render @tasks %>
+</div>
