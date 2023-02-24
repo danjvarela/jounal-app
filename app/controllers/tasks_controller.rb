@@ -2,7 +2,7 @@ class TasksController < ApplicationController
   include TasksHelper
   before_action :authenticate_user!
   before_action :get_category
-  before_action :get_task, only: [:edit, :update, :destroy, :show]
+  before_action :get_task, only: [:edit, :update, :destroy, :show, :complete]
 
   def index
     @tasks = @category.blank? ? current_user.tasks : @category.tasks
@@ -21,6 +21,11 @@ class TasksController < ApplicationController
     else
       render :edit, status: :unprocessable_entity
     end
+  end
+
+  def complete
+    @task.update_attribute(:completed, params[:task][:completed])
+    render partial: 'tasks/checkbox', locals: {task: @task}
   end
 
   def show
